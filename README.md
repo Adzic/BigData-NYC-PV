@@ -8,8 +8,6 @@ main.py,api.py, Dockerfile, requirements.txt and results.json
 I had to run following commands in terminal:
 
 docker build -t bigdata1:1.0 . <br/>
-docker build -t bigdata1:1.0 . <br/>
-docker run -t bigdata1:1.0 python main.py <br/>
 docker run -t bigdata1:1.0 python main.py <br/>
 docker run -it bigdata1:1.0 /bin/bash <br/>
 docker run -e APP_KEY=YOUR_APP_TOKEN -v $(pwd):/app bigdata:1.0 python main.py --page_size=1 --num_pages=11 --output=result.json <br/>
