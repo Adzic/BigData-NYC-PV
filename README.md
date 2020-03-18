@@ -39,5 +39,23 @@ You can chek if you have pushed data into ES Server properly run:
 Once you get this thing done you can move on to making interesting dashboars with **Kibana** by connecting to local host http://localhost:5601
 
 
+# BigData-Part3 - Vizualization with Kibana
+
+
+
+![](https://github.com/Adzic/BigData-NYC-PV/blob/master/BigData-Part3/Discover%20home.png)
+
+
+![](https://github.com/Adzic/BigData-NYC-PV/blob/master/BigData-Part3/Line%20Chart.png)
+
+
+![](https://github.com/Adzic/BigData-NYC-PV/blob/master/BigData-Part3/Screen%20Shot%202020-03-17%20at%2010.14.26%20PM.png)
+
+
+![](https://github.com/Adzic/BigData-NYC-PV/blob/master/BigData-Part3/Screen%20Shot%202020-03-18%20at%202.15.39%20PM.png)
+
+
+![](https://github.com/Adzic/BigData-NYC-PV/blob/master/BigData-Part3/Screen%20Shot%202020-03-18%20at%202.53.37%20PM.png)
+
 
 
