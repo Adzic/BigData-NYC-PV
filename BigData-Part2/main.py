@@ -27,14 +27,14 @@ def create_and_update_index(index_name, doc_type):
     return es
 
 def get_output_data(result_fn: str) ->list:
-    '''gets data from result_fn and return a list of data points'''
+    
     with open(result_fn) as f_read:
         r = json.load(f_read)
         data_list = r["data_list"]
     return data_list
 
 if __name__=='__main__':
-    '''Construct the argument parser to get argument from command line'''  
+    
     ap = argparse.ArgumentParser()
     ap.add_argument("--page_size", type=int, default=None)
     ap.add_argument("--num_pages", type=int, default=None)
@@ -49,22 +49,20 @@ if __name__=='__main__':
     get_data(page_size, num_pages, output_fn)
 
     es = create_and_update_index('violation-index', 'violation')
-    docks = get_output_data(output_fn)
+    j = get_output_data(output_fn)
 
 
-    ## Push parking violation data into the elastic search
-    ## consider dock as a row in the table docks
+    
     i = 0
     if output_fn != None:
-        for dock in docks:
+        for j in j:
             try:
-                ## since the value in dock['violation_time'] is 'hh:mmP' or 'hh:mmA' instead of 'hh:mm'+"AM|PM"
-                ## we need an extra M to match the pattern
-                dock['issue_date_time'] = datetime.strptime(  dock['issue_date'] + ' ' + dock['violation_time']+'M',
+                
+                j['issue_date_time'] = datetime.strptime(  j['issue_date'] + ' ' + j['violation_time']+'M',
                                                         '%m/%d/%Y %I:%M%p' )
             except Exception as e:
-                dock['issue_date_time'] = None
+                j['issue_date_time'] = None
 
-            res = es.index(index='violation-index', doc_type='violation', body=dock,)
+            res = es.index(index='violation-index', doc_type='violation', body=j,)
             print(res['result'] + f' at index: {i}')
             i+=1
